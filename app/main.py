@@ -44,15 +44,18 @@ def move():
     print ("Food: "+data.get('food').__str__())
     print ("Items: " + data.items().__str__())
     food_list = data.get('food')
-    first_food = food_list[0]
+
     snakes = data.get('snakes')
+    #TODO: Change this so it actually checks if the snake is ours
     snake_coords = snakes[0].get('coords')
     snake_head = snake_coords[0]
     board_width = data.get('width')
     board_height = data.get('height')
 
     print ("Snake_Head ->  " + snake_head.__str__())
-    print ("First_Food -> "+ first_food.__str__())
+    #print ("First_Food -> "+ first_food.__str__())
+
+    first_food = food_list[find_closest_food_index(snake_head, data)]
 
 
     if (first_food[1] < snake_head[1]) and (if_safe(up(snake_head), data)):
@@ -98,6 +101,26 @@ def move():
         'move': direction,
         'taunt': 'kent-snek2'
     }
+
+
+def find_closest_food_index(snake_head, data):
+    food_list = data.get('food')
+    current_mindex = 0
+    current_min_score = 999999
+    count = 0
+    for current_food in food_list:
+        current_distance = [99,99]
+        current_distance[0] = snake_head[0]-current_food[0]
+        current_distance[1] = snake_head[1]-current_food[1]
+        current_distance[0] = current_distance[0] * current_distance[0]
+        current_distance[1] = current_distance[1] * current_distance[1]
+        current_score = current_distance[0] + current_distance[1]
+        if current_score < current_min_score:
+            current_min_score = current_score
+            current_mindex = count
+        count += 1
+    return current_mindex
+
 
 
 def if_safe(new_snake_head,data):
