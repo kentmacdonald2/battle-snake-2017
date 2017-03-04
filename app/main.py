@@ -101,14 +101,11 @@ def move():
     first_food = sorted_list[0].loc
 
     primary_path = search(snake_head, data, first_food)
-    
-    has_sec_path = True
+
     sec_path = None
     if len(sorted_list) > 1:
         sec_food = sorted_list[1]
-        sec_path = search(first_food, data, sec_food.loc)
-        #has_sec_path = len(sec_path) > 0
-    
+        sec_path = search(first_food, data, sec_food.loc)    
     if not sec_path:
         primary_path = search(snake_head, data, get_inverse_coord(board_width, board_height, data, snake_head))
 
