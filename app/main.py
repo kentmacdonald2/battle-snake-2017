@@ -52,8 +52,6 @@ def move():
     print ("Snake_Head ->  " + snake_head.__str__())
     # print ("First_Food -> "+ first_food.__str__())
 
-    first_food = food_list[find_closest_food_index(snake_head, data)]
-
     # if (first_food[1] < snake_head[1]) and (if_safe(up(snake_head), data)):
     #     print ("Going UP")
     #     direction = 'up'
@@ -93,9 +91,15 @@ def move():
     #             direction = 'right'
     #             print("Going RIGHT2")
 
-    path = search(snake_head, data, first_food)
-    print ("Path -> " + path.__str__())
-    first_move = path[-1]
+    closest_food_index = find_closest_food_index(snake_head, data)
+    first_food = food_list[closest_food_index]
+
+    primary_path = search(snake_head, data, first_food)
+
+
+    print ("Path -> " + primary_path.__str__())
+
+    first_move = primary_path[-1]
     if (up(snake_head) == first_move):
         direction = 'up'
     if (down(snake_head) == first_move):
@@ -128,6 +132,7 @@ def find_closest_food_index(snake_head, data):
             current_mindex = count
         count += 1
     return current_mindex
+
 
 
 def if_safe(new_snake_head, data):
