@@ -23,8 +23,14 @@ def right(old_snake_head):
 
 
 def reconstruct(successor):
-    return None
+    l = []
+    tmp = successor
 
+    while tmp.parent is not None:
+       l.append(tmp.pos)
+       tmp = tmp.parent
+    
+    return l
 
 def if_safe(new_snake_head, data):
     snakes = data.get('snakes')
@@ -79,7 +85,6 @@ def search(snake_head, data, goal):
 
 
         for succesor in successors:
-            #TODO: Implement reconstruct
             if succesor.pos == goal:
                 return reconstruct(succesor)
             succesor.g = q.g + 1
@@ -98,6 +103,4 @@ def search(snake_head, data, goal):
             if add:
                 open_list.append(succesor)
         closed_list.append(q)
-
-
 
