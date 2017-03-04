@@ -105,7 +105,7 @@ def move():
     has_sec_path = True
     if len(sorted_list) > 1:
         sec_food = sorted_list[1]
-        sec_path = search(first_food, data, sec_food)
+        sec_path = search(first_food, data, sec_food.loc)
         has_sec_path = len(sec_path) > 0
     
     if not has_sec_path:
