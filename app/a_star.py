@@ -64,7 +64,6 @@ def search(snake_head, data, goal):
     open_list.append(snek)
     #Set score to zero
 
-
     while len(open_list) > 0:
         q = min(open_list, key= lambda n: n.f)
         open_list.remove(q)

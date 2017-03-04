@@ -136,6 +136,7 @@ def get_inverse_coord(board_width, board_height, data, snake_head):
     pos = [x,y]
     rad = 1
     while True:
+        print ("HERE")
         if if_safe(up(pos, rad), data):
             return up(pos, rad) 
         if if_safe(down(pos, rad), data):
