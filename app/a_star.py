@@ -89,6 +89,8 @@ def search(snake_head, data, goal):
                 return reconstruct(succesor)
             succesor.g = q.g + 1
             straight_line_distance = ((succesor.pos[0] - goal[0])**2) + ((succesor.pos[1] - goal[1])**2)
+            print ("succesor.pos[0] = " + succesor.pos[0].__str__())
+            print ("goal[0] = " + goal[0].__str__())
             succesor.h = q.h + straight_line_distance
             succesor.f = succesor.g + succesor.h
             add = True
