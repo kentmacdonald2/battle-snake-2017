@@ -155,52 +155,6 @@ def right(old_snake_head):
     return [old_snake_head[0] + 1, old_snake_head[1]]
 
 
-# def check_if_valid(snake_body,snake_head,intended_direction,board_width, board_height):
-#     up_head = [snake_head[0], snake_head[1]-1]
-#     down_head = [snake_head[0], snake_head[1]+1]
-#     left_head = [snake_head[0]-1, snake_head[1]]
-#     right_head = [snake_head[0]+1, snake_head[1]]
-#     if intended_direction == 'up':
-#         print ("Checking valid moving UP to -> " + up_head.__str__())
-#         if up_head in snake_body:
-#             print ("-COLLISION-")
-#             return False
-#         else:
-#             if up_head[1] < 0:
-#                     return False
-#             return True
-#     if intended_direction == 'down':
-#         print ("Checking valid moving DOWN to -> " + down_head.__str__())
-#         if down_head in snake_body:
-#             print ("-COLLISION-")
-#             return False
-#         else:
-#             if down_head[1] > board_height:
-#                 print ("GOING TO GO OFF STAGE2")
-#                 return False
-#             return True
-#     if intended_direction == 'left':
-#         print ("Checking valid moving LEFT to -> " + left_head.__str__())
-#         if left_head in snake_body:
-#             print ("-COLLISION-")
-#             return False
-#         else:
-#             if left_head[0] < 0:
-#                 return False
-#             return True
-#     if intended_direction == 'right':
-#         print ("Checking valid moving RIGHT to -> " + right_head.__str__())
-#         if right_head in snake_body:
-#             print ("-COLLISION-")
-#             return False
-#         else:
-#             if right_head[0] > board_width:
-#                 print ("GOING TO GO OFF STAGE1")
-#                 return False
-#             return True
-#     else:
-#         return False
-
 # Expose WSGI app (so gunicorn can find it)
 application = bottle.default_app()
 if __name__ == '__main__':
