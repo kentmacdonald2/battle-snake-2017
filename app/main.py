@@ -2,6 +2,10 @@ import bottle
 import os
 import random
 
+taunts = [
+    'i am courtney, hear me roar',
+    'i want callum',
+]
 
 @bottle.route('/static/<path:path>')
 def static(path):
@@ -16,20 +20,12 @@ def start():
     board_height = data['height']
     global_board_height = board_height
     global_board_width = board_width
-
-    print ("********************START DUMP" + data.__str__())
-    head_url = '%s://%s/static/head.png' % (
-        bottle.request.urlparts.scheme,
-        bottle.request.urlparts.netloc
-    )
-
-    # TODO: Do things with data
-
+    
     return {
         'color': '#FF00FF',
-        'taunt': '{} ({}x{})'.format(game_id, board_width, board_height),
-        'head_url': head_url,
-        'name': 'Kents Snake'
+        'taunt': random.choice(taunts),
+        'head_url': 'https://cvws.icloud-content.com/CAEQARoQIXZCvczX_7a27NPmpe95GQ/0191b84e87ff1a08720e9186b86339bd2e8e8c854a/output.jpg?v=0&z=https://p28-content.icloud.com:443&x=1&a=BhVl218Uf32vVuzvjFyEj9iWRwPWAx%2BROQEAAA%3D%3D&e=1488666178000&r=4a7b14fa-6860-4ba3-ad4c-13b8d71a341e-1&c=&s=f4fmJgIh6Otmw4bAjZ71BlnsmO0',
+        'name': 'beames.ai'
     }
 
 
@@ -98,7 +94,7 @@ def move():
 
     return {
         'move': direction,
-        'taunt': 'kent-snek2'
+        'taunt': random.choice(taunts),
     }
 
 
