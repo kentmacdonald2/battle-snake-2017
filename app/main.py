@@ -109,7 +109,9 @@ def move():
         sec_path = search(first_food, data, sec_food.loc)
         print("TWO")
     if not sec_path:
-        primary_path = search(snake_head, data, get_inverse_coord(board_width, board_height, data, snake_head))
+        alt_coord = get_inverse_coord(board_width, board_height, data, snake_head)
+        print ("************alt_coord = " + alt_coord.__str__())
+        primary_path = search(snake_head, data, alt_coord)
 
     print ("Path -> " + primary_path.__str__())
 
