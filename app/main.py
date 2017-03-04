@@ -1,6 +1,7 @@
 import bottle
 import os
 import random
+from a_star import search
 
 taunts = [
     'i am courtney, hear me roar',
@@ -53,44 +54,55 @@ def move():
 
     first_food = food_list[find_closest_food_index(snake_head, data)]
 
-    if (first_food[1] < snake_head[1]) and (if_safe(up(snake_head), data)):
-        print ("Going UP")
+    # if (first_food[1] < snake_head[1]) and (if_safe(up(snake_head), data)):
+    #     print ("Going UP")
+    #     direction = 'up'
+    #
+    # elif (first_food[1] > snake_head[1]) and (if_safe(down(snake_head), data)):
+    #     direction = 'down'
+    #     print ("Going DOWN")
+    #
+    # elif (first_food[0] < snake_head[0]) and (if_safe(left(snake_head), data)):
+    #     direction = 'left'
+    #     print ("Going LEFT")
+    #
+    # elif (first_food[0] > snake_head[0]) and (if_safe(right(snake_head), data)):
+    #     direction = 'right'
+    #     print ("Going RIGHT")
+    #
+    # else:
+    #     if (if_safe(up(up(snake_head)), data)) and (if_safe(up(snake_head), data)):
+    #         direction = 'up'
+    #     elif if_safe(down(down(snake_head)), data) and if_safe(down(snake_head), data):
+    #         direction = 'down'
+    #     elif if_safe(left(left(snake_head)), data) and if_safe(left(snake_head), data):
+    #         direction = 'left'
+    #     elif if_safe(right(right(snake_head)), data) and if_safe(right(snake_head), data):
+    #         direction = 'right'
+    #     else:
+    #         if if_safe(up(snake_head), data):
+    #             direction = 'up'
+    #             print("Going UP2")
+    #         elif if_safe(down(snake_head), data):
+    #             direction = 'down'
+    #             print("Going DOWN2")
+    #         elif if_safe(left(snake_head), data):
+    #             direction = 'left'
+    #             print("Going LEFT2")
+    #         else:
+    #             direction = 'right'
+    #             print("Going RIGHT2")
+
+    path = search(snake_head, data, first_food)
+    first_move = path[-1]
+    if (up(snake_head) == first_move):
         direction = 'up'
-
-    elif (first_food[1] > snake_head[1]) and (if_safe(down(snake_head), data)):
+    if (down(snake_head) == first_move):
         direction = 'down'
-        print ("Going DOWN")
-
-    elif (first_food[0] < snake_head[0]) and (if_safe(left(snake_head), data)):
+    if (left(snake_head) == first_move):
         direction = 'left'
-        print ("Going LEFT")
-
-    elif (first_food[0] > snake_head[0]) and (if_safe(right(snake_head), data)):
+    if (right(snake_head) == first_move):
         direction = 'right'
-        print ("Going RIGHT")
-
-    else:
-        if (if_safe(up(up(snake_head)), data)) and (if_safe(up(snake_head), data)):
-            direction = 'up'
-        elif if_safe(down(down(snake_head)), data) and if_safe(down(snake_head), data):
-            direction = 'down'
-        elif if_safe(left(left(snake_head)), data) and if_safe(left(snake_head), data):
-            direction = 'left'
-        elif if_safe(right(right(snake_head)), data) and if_safe(right(snake_head), data):
-            direction = 'right'
-        else:
-            if if_safe(up(snake_head), data):
-                direction = 'up'
-                print("Going UP2")
-            elif if_safe(down(snake_head), data):
-                direction = 'down'
-                print("Going DOWN2")
-            elif if_safe(left(snake_head), data):
-                direction = 'left'
-                print("Going LEFT2")
-            else:
-                direction = 'right'
-                print("Going RIGHT2")
 
     return {
         'move': direction,
