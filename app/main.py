@@ -138,10 +138,14 @@ def get_inverse_coord(board_width, board_height, data, snake_head):
     pos = [x,y]
     rad = 1
     while True:
-        return up(pos, rad) if is_safe(up(pos, rad), data)
-        return down(pos, rad) if is_safe(down(pos, rad), data)
-        return left(pos, rad) if is_safe(left(pos, rad), data)
-        return right(pos, rad) if is_safe(right(pos, rad), data)
+        if if_safe(up(pos, rad), data):
+            return up(pos, rad) 
+        if if_safe(down(pos, rad), data):
+            return down(pos, rad) 
+        if if_safe(right(pos, rad), data):
+             return right(pos, rad) 
+        if if_safe(left(pos, rad), data):
+            return left(pos, rad) 
         rad += 1
 
 def get_food_list(snake_head, data):
@@ -156,7 +160,7 @@ def get_food_list(snake_head, data):
         current_distance[0] = current_distance[0] * current_distance[0]
         current_distance[1] = current_distance[1] * current_distance[1]
         current_score = current_distance[0] + current_distance[1]
-        l.append(food(current_food, current_score) 
+        l.append(food(current_food, current_score)) 
 
     l.sort(key=lambda x: x.current_score)
     return l
