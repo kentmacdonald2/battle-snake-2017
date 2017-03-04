@@ -162,7 +162,7 @@ def get_food_list(snake_head, data):
         current_score = current_distance[0] + current_distance[1]
         l.append(food(current_food, current_score)) 
 
-    l.sort(key=lambda x: x.current_score)
+    l.sort(key=lambda x: x.sld)
     return l
 
 def if_safe(new_snake_head, data):
