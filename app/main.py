@@ -129,14 +129,13 @@ def move():
 def get_inverse_coord(board_width, board_height, data, snake_head):
     x = board_width - snake_head[0]
     y = board_height - snake_head[1]
-
+    print ("HERE")
     if if_safe([x, y], data):
         return [x, y]
 
     pos = [x,y]
     rad = 1
     while True:
-        print ("HERE")
         if if_safe(up(pos, rad), data):
             return up(pos, rad) 
         if if_safe(down(pos, rad), data):
