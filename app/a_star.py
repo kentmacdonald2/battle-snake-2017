@@ -61,7 +61,7 @@ def search(snake_head, data, goal):
 
 
     #Add starting node to the open list
-    open_list.append(snake_head)
+    open_list.append(snek)
     #Set score to zero
 
 
