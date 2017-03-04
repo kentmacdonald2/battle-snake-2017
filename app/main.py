@@ -94,6 +94,7 @@ def move():
     #             print("Going RIGHT2")
 
     path = search(snake_head, data, first_food)
+    print ("Path -> " + path.__str__())
     first_move = path[-1]
     if (up(snake_head) == first_move):
         direction = 'up'
