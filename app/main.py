@@ -21,14 +21,6 @@ def start():
     global_board_height = board_height
     global_board_width = board_width
     
-    print ("********************START DUMP"+data.__str__())
-    #head_url = '%s://%s/static/head.png' % (
-    #    bottle.request.urlparts.scheme,
-    #    bottle.request.urlparts.netloc
-    #)
-
-    # TODO: Do things with data
-
     return {
         'color': '#FF00FF',
         'taunt': random.choice(taunts),
