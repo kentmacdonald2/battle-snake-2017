@@ -16,8 +16,8 @@ def start():
     board_height = data['height']
     global_board_height = board_height
     global_board_width = board_width
-    
-    print ("********************START DUMP"+data.__str__())
+
+    print ("********************START DUMP" + data.__str__())
     head_url = '%s://%s/static/head.png' % (
         bottle.request.urlparts.scheme,
         bottle.request.urlparts.netloc
@@ -41,36 +41,35 @@ def move():
     # TODO: Do things with data
     directions = ['up', 'down', 'left', 'right']
     print ("MOVE DUMP" + data.__str__())
-    print ("Food: "+data.get('food').__str__())
+    print ("Food: " + data.get('food').__str__())
     print ("Items: " + data.items().__str__())
     food_list = data.get('food')
 
     snakes = data.get('snakes')
-    #TODO: Change this so it actually checks if the snake is ours
+    # TODO: Change this so it actually checks if the snake is ours
     snake_coords = snakes[0].get('coords')
     snake_head = snake_coords[0]
     board_width = data.get('width')
     board_height = data.get('height')
 
     print ("Snake_Head ->  " + snake_head.__str__())
-    #print ("First_Food -> "+ first_food.__str__())
+    # print ("First_Food -> "+ first_food.__str__())
 
     first_food = food_list[find_closest_food_index(snake_head, data)]
-
 
     if (first_food[1] < snake_head[1]) and (if_safe(up(snake_head), data)):
         print ("Going UP")
         direction = 'up'
 
-    elif( first_food[1] > snake_head[1]) and (if_safe(down(snake_head), data)):
+    elif (first_food[1] > snake_head[1]) and (if_safe(down(snake_head), data)):
         direction = 'down'
         print ("Going DOWN")
 
-    elif( first_food[0] < snake_head[0]) and (if_safe(left(snake_head), data)):
+    elif (first_food[0] < snake_head[0]) and (if_safe(left(snake_head), data)):
         direction = 'left'
         print ("Going LEFT")
 
-    elif(first_food[0] > snake_head[0]) and (if_safe(right(snake_head), data)):
+    elif (first_food[0] > snake_head[0]) and (if_safe(right(snake_head), data)):
         direction = 'right'
         print ("Going RIGHT")
 
@@ -109,9 +108,9 @@ def find_closest_food_index(snake_head, data):
     current_min_score = 999999
     count = 0
     for current_food in food_list:
-        current_distance = [99,99]
-        current_distance[0] = snake_head[0]-current_food[0]
-        current_distance[1] = snake_head[1]-current_food[1]
+        current_distance = [99, 99]
+        current_distance[0] = snake_head[0] - current_food[0]
+        current_distance[1] = snake_head[1] - current_food[1]
         current_distance[0] = current_distance[0] * current_distance[0]
         current_distance[1] = current_distance[1] * current_distance[1]
         current_score = current_distance[0] + current_distance[1]
@@ -122,43 +121,43 @@ def find_closest_food_index(snake_head, data):
     return current_mindex
 
 
-
-def if_safe(new_snake_head,data):
+def if_safe(new_snake_head, data):
     snakes = data.get('snakes')
     our_id = data.get('you')
     board_width = data.get('width')
     board_height = data.get('height')
 
-    #print("Snakes List -> " +snakes.__str__())
+    # print("Snakes List -> " +snakes.__str__())
     for snake in snakes:
         if new_snake_head in snake.get('coords'):
             return False
-    #If new position is off the board
+    # If new position is off the board
     if new_snake_head[1] < 0:
-            return False
-    if new_snake_head[1] > board_height-1:
+        return False
+    if new_snake_head[1] > board_height - 1:
         return False
     if new_snake_head[0] < 0:
         return False
-    if new_snake_head[0] >board_width-1:
+    if new_snake_head[0] > board_width - 1:
         return False
     return True
 
 
 def up(old_snake_head):
-    return [old_snake_head[0], old_snake_head[1]-1]
+    return [old_snake_head[0], old_snake_head[1] - 1]
 
 
 def down(old_snake_head):
-    return [old_snake_head[0], old_snake_head[1]+1]
+    return [old_snake_head[0], old_snake_head[1] + 1]
 
 
 def left(old_snake_head):
-    return [old_snake_head[0]-1, old_snake_head[1]]
+    return [old_snake_head[0] - 1, old_snake_head[1]]
 
 
 def right(old_snake_head):
-    return [old_snake_head[0]+1, old_snake_head[1]]
+    return [old_snake_head[0] + 1, old_snake_head[1]]
+
 
 # def check_if_valid(snake_body,snake_head,intended_direction,board_width, board_height):
 #     up_head = [snake_head[0], snake_head[1]-1]
