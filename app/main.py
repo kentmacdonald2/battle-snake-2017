@@ -5,7 +5,7 @@ from a_star import search
 
 taunts = [
     'i am courtney, hear me roar',
-    'i want callum',
+    'BEAMZ HUNGRY',
 ]
 
 class food():
