@@ -61,7 +61,6 @@ def move():
     sec_path = None
 
     if len(sorted_list) > 1:
-        print("1")
         sec_food = sorted_list[1]
         new_list = get_food_list(first_food, data)
         sec_path = search(first_food, data, new_list[0].loc)
@@ -73,13 +72,11 @@ def move():
 
     if len(sorted_list) > 1:
         if not sec_path:
-            print "3"
             primary_path = search(snake_head, data, sec_food.loc)
 
 
     if not primary_path:
         #Desperation Move
-        print "4"
         if (if_safe(up(snake_head,1), data)):
             return {
                 'move': 'up',
