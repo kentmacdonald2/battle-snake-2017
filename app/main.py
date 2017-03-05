@@ -108,6 +108,7 @@ def move():
         sec_path = search(first_food, data, sec_food.loc)
 
     if not sec_path:
+        print "Trying to find alt path"
         primary_path = search(snake_head, data, sec_food.loc)
 
 
