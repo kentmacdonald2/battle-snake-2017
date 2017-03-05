@@ -50,7 +50,9 @@ def move():
 
     snakes = data.get('snakes')
     # TODO: Change this so it actually checks if the snake is ours
-    snake_coords = snakes[0].get('coords')
+    for snake in snakes:
+        if data.get('you') == snake.get('id'):
+            snake_coords = snake.get('coords')
     snake_head = snake_coords[0]
     board_width = data.get('width')
     board_height = data.get('height')
