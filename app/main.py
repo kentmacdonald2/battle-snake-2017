@@ -109,9 +109,26 @@ def move():
         sec_path = search(first_food, data, sec_food.loc)
         print("TWO")
     if not sec_path:
-        alt_coord = get_inverse_coord(board_width, board_height, data, snake_head)
-        print ("************alt_coord = " + alt_coord.__str__())
-        primary_path = search(snake_head, data, alt_coord)
+        if (if_safe(up(snake_head,1))) and up(snake_head,1) != primary_path[-1]:
+            return {
+                'move': 'up',
+                'taunt': random.choice(taunts),
+            }
+        if (if_safe(down(snake_head,1))) and down(snake_head,1) != primary_path[-1]:
+            return {
+                'move': 'down',
+                'taunt': random.choice(taunts),
+            }
+        if (if_safe(left(snake_head,1))) and left(snake_head,1) != primary_path[-1]:
+            return {
+                'move': 'left',
+                'taunt': random.choice(taunts),
+            }
+        if (if_safe(right(snake_head,1))) and right(snake_head,1) != primary_path[-1]:
+            return {
+                'move': 'right',
+                'taunt': random.choice(taunts),
+            }
 
     print ("Path -> " + primary_path.__str__())
 
