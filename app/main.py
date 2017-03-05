@@ -101,7 +101,7 @@ def move():
     first_food = sorted_list[0].loc
 
     primary_path = search(snake_head, data, first_food)
-
+    print ("Primary: " + primary_path)
     sec_path = None
     if len(sorted_list) > 1:
         sec_food = sorted_list[1]
@@ -136,7 +136,7 @@ def move():
         #             'taunt': random.choice(taunts),
         #         }
 
-    print ("Primary: " + primary_path)
+
     print ("Secondary: " + sec_path)
 
     print ("Path -> " + primary_path.__str__())
