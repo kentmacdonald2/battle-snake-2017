@@ -107,27 +107,31 @@ def move():
         sec_food = sorted_list[1]
         sec_path = search(first_food, data, sec_food.loc)
 
-    if not sec_path:
-        if (if_safe(up(snake_head,1), data)) and up(snake_head,1) != primary_path[-1]:
-            return {
-                'move': 'up',
-                'taunt': random.choice(taunts),
-            }
-        if (if_safe(down(snake_head,1), data)) and down(snake_head,1) != primary_path[-1]:
-            return {
-                'move': 'down',
-                'taunt': random.choice(taunts),
-            }
-        if (if_safe(left(snake_head,1), data)) and left(snake_head,1) != primary_path[-1]:
-            return {
-                'move': 'left',
-                'taunt': random.choice(taunts),
-            }
-        if (if_safe(right(snake_head,1),data)) and right(snake_head,1) != primary_path[-1]:
-            return {
-                'move': 'right',
-                'taunt': random.choice(taunts),
-            }
+    if not primary_path:
+        if sec_path:
+            primary_path = sec_path
+        else:
+            #Desperation Move
+            if (if_safe(up(snake_head,1), data)):
+                return {
+                    'move': 'up',
+                    'taunt': random.choice(taunts),
+                }
+            if (if_safe(down(snake_head,1), data)):
+                return {
+                    'move': 'down',
+                    'taunt': random.choice(taunts),
+                }
+            if (if_safe(left(snake_head,1), data)):
+                return {
+                    'move': 'left',
+                    'taunt': random.choice(taunts),
+                }
+            if (if_safe(right(snake_head,1),data)):
+                return {
+                    'move': 'right',
+                    'taunt': random.choice(taunts),
+                }
 
     print ("Path -> " + primary_path.__str__())
 
