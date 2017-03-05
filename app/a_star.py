@@ -105,4 +105,5 @@ def search(snake_head, data, goal):
             if add:
                 open_list.append(succesor)
         closed_list.append(q)
+    return None
 
