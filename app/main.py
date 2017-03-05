@@ -117,10 +117,10 @@ def move():
         print "Trying to find alt path"
         primary_path = search(snake_head, data, sec_food.loc)
 
-    print ("Secondary: " + sec_path.__str__())
 
     if not primary_path:
         #Desperation Move
+        print "DESPERATION ENTERED"
         if (if_safe(up(snake_head,1), data)):
             return {
                 'move': 'up',
