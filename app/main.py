@@ -65,11 +65,12 @@ def move():
         sec_food = sorted_list[1]
         new_list = get_food_list(first_food, data)
         sec_path = search(first_food, data, new_list[0].loc)
+        new_path = search(snake_head, data, new_list[0].loc)
 
     if len(sorted_list) > 1:
         if not primary_path and sec_path:
             print "sec_path = " + sec_path
-            primary_path = sec_path
+            primary_path = new_path
 
     if len(sorted_list) > 1:
         if not sec_path:
