@@ -209,11 +209,11 @@ def if_safe(new_snake_head, data):
     # If new position is off the board
     if new_snake_head[1] < 0:
         return False
-    if new_snake_head[1] > board_height:
+    if new_snake_head[1] > board_height-1:
         return False
     if new_snake_head[0] < 0:
         return False
-    if new_snake_head[0] > board_width:
+    if new_snake_head[0] > board_width-1:
         return False
     return True
 
