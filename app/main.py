@@ -101,7 +101,7 @@ def move():
     first_food = sorted_list[0].loc
 
     primary_path = search(snake_head, data, first_food)
-    print ("Primary: " + primary_path)
+    print ("Primary: " + primary_path.__str__())
     sec_path = None
     if len(sorted_list) > 1:
         sec_food = sorted_list[1]
@@ -137,9 +137,8 @@ def move():
         #         }
 
 
-    print ("Secondary: " + sec_path)
+    print ("Secondary: " + sec_path.__str__())
 
-    print ("Path -> " + primary_path.__str__())
 
     first_move = primary_path[-1]
     if (up(snake_head, 1) == first_move):
