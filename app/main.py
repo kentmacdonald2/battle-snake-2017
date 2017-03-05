@@ -117,45 +117,40 @@ def move():
         print "Trying to find alt path"
         primary_path = search(snake_head, data, sec_food.loc)
 
-
-        # if sec_path:
-        #     primary_path = sec_path
-        # else:
-        #     #Desperation Move
-        #     if (if_safe(up(snake_head,1), data)):
-        #         return {
-        #             'move': 'up',
-        #             'taunt': random.choice(taunts),
-        #         }
-        #     if (if_safe(down(snake_head,1), data)):
-        #         return {
-        #             'move': 'down',
-        #             'taunt': random.choice(taunts),
-        #         }
-        #     if (if_safe(left(snake_head,1), data)):
-        #         return {
-        #             'move': 'left',
-        #             'taunt': random.choice(taunts),
-        #         }
-        #     if (if_safe(right(snake_head,1),data)):
-        #         return {
-        #             'move': 'right',
-        #             'taunt': random.choice(taunts),
-        #         }
-
-
     print ("Secondary: " + sec_path.__str__())
 
-
-    first_move = primary_path[-1]
-    if (up(snake_head, 1) == first_move):
-        direction = 'up'
-    if (down(snake_head, 1) == first_move):
-        direction = 'down'
-    if (left(snake_head, 1) == first_move):
-        direction = 'left'
-    if (right(snake_head, 1) == first_move):
-        direction = 'right'
+    if not primary_path:
+        #Desperation Move
+        if (if_safe(up(snake_head,1), data)):
+            return {
+                'move': 'up',
+                'taunt': random.choice(taunts),
+            }
+        if (if_safe(down(snake_head,1), data)):
+            return {
+                'move': 'down',
+                'taunt': random.choice(taunts),
+            }
+        if (if_safe(left(snake_head,1), data)):
+            return {
+                'move': 'left',
+                'taunt': random.choice(taunts),
+            }
+        if (if_safe(right(snake_head,1),data)):
+            return {
+                'move': 'right',
+                'taunt': random.choice(taunts),
+            }
+    else:
+        first_move = primary_path[-1]
+        if (up(snake_head, 1) == first_move):
+            direction = 'up'
+        if (down(snake_head, 1) == first_move):
+            direction = 'down'
+        if (left(snake_head, 1) == first_move):
+            direction = 'left'
+        if (right(snake_head, 1) == first_move):
+            direction = 'right'
 
     return {
         'move': direction,
