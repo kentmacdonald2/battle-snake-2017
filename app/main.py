@@ -136,6 +136,9 @@ def move():
         #             'taunt': random.choice(taunts),
         #         }
 
+    print primary_path
+    print sec_path
+
     print ("Path -> " + primary_path.__str__())
 
     first_move = primary_path[-1]

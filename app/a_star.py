@@ -87,8 +87,6 @@ def search(snake_head, data, goal):
 
         count += 1
         for succesor in successors:
-
-            print (count.__str__())
             if succesor.pos == goal:
                 return reconstruct(succesor)
             succesor.g = q.g + 1
