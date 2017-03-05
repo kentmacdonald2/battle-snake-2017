@@ -107,31 +107,34 @@ def move():
         sec_food = sorted_list[1]
         sec_path = search(first_food, data, sec_food.loc)
 
-    if not primary_path:
-        if sec_path:
-            primary_path = sec_path
-        else:
-            #Desperation Move
-            if (if_safe(up(snake_head,1), data)):
-                return {
-                    'move': 'up',
-                    'taunt': random.choice(taunts),
-                }
-            if (if_safe(down(snake_head,1), data)):
-                return {
-                    'move': 'down',
-                    'taunt': random.choice(taunts),
-                }
-            if (if_safe(left(snake_head,1), data)):
-                return {
-                    'move': 'left',
-                    'taunt': random.choice(taunts),
-                }
-            if (if_safe(right(snake_head,1),data)):
-                return {
-                    'move': 'right',
-                    'taunt': random.choice(taunts),
-                }
+    if not sec_path:
+        primary_path = search(snake_head, data, sec_food.loc)
+
+
+        # if sec_path:
+        #     primary_path = sec_path
+        # else:
+        #     #Desperation Move
+        #     if (if_safe(up(snake_head,1), data)):
+        #         return {
+        #             'move': 'up',
+        #             'taunt': random.choice(taunts),
+        #         }
+        #     if (if_safe(down(snake_head,1), data)):
+        #         return {
+        #             'move': 'down',
+        #             'taunt': random.choice(taunts),
+        #         }
+        #     if (if_safe(left(snake_head,1), data)):
+        #         return {
+        #             'move': 'left',
+        #             'taunt': random.choice(taunts),
+        #         }
+        #     if (if_safe(right(snake_head,1),data)):
+        #         return {
+        #             'move': 'right',
+        #             'taunt': random.choice(taunts),
+        #         }
 
     print ("Path -> " + primary_path.__str__())
 
