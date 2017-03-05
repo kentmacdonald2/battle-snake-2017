@@ -66,7 +66,6 @@ def search(snake_head, data, goal):
     count = 0
     while len(open_list) > 0:
         if count > 499:
-            print ("TIMEOUT")
             return None
         q = min(open_list, key= lambda n: n.f)
         open_list.remove(q)

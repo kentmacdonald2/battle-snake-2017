@@ -43,9 +43,6 @@ def move():
 
     # TODO: Do things with data
     directions = ['up', 'down', 'left', 'right']
-    print ("MOVE DUMP" + data.__str__())
-    print ("Food: " + data.get('food').__str__())
-    print ("Items: " + data.items().__str__())
     food_list = data.get('food')
 
     snakes = data.get('snakes')
@@ -57,53 +54,10 @@ def move():
     board_width = data.get('width')
     board_height = data.get('height')
 
-    print ("Snake_Head ->  " + snake_head.__str__())
-    # print ("First_Food -> "+ first_food.__str__())
-
-    # if (first_food[1] < snake_head[1]) and (if_safe(up(snake_head), data)):
-    #     print ("Going UP")
-    #     direction = 'up'
-    #
-    # elif (first_food[1] > snake_head[1]) and (if_safe(down(snake_head), data)):
-    #     direction = 'down'
-    #     print ("Going DOWN")
-    #
-    # elif (first_food[0] < snake_head[0]) and (if_safe(left(snake_head), data)):
-    #     direction = 'left'
-    #     print ("Going LEFT")
-    #
-    # elif (first_food[0] > snake_head[0]) and (if_safe(right(snake_head), data)):
-    #     direction = 'right'
-    #     print ("Going RIGHT")
-    #
-    # else:
-    #     if (if_safe(up(up(snake_head)), data)) and (if_safe(up(snake_head), data)):
-    #         direction = 'up'
-    #     elif if_safe(down(down(snake_head)), data) and if_safe(down(snake_head), data):
-    #         direction = 'down'
-    #     elif if_safe(left(left(snake_head)), data) and if_safe(left(snake_head), data):
-    #         direction = 'left'
-    #     elif if_safe(right(right(snake_head)), data) and if_safe(right(snake_head), data):
-    #         direction = 'right'
-    #     else:
-    #         if if_safe(up(snake_head), data):
-    #             direction = 'up'
-    #             print("Going UP2")
-    #         elif if_safe(down(snake_head), data):
-    #             direction = 'down'
-    #             print("Going DOWN2")
-    #         elif if_safe(left(snake_head), data):
-    #             direction = 'left'
-    #             print("Going LEFT2")
-    #         else:
-    #             direction = 'right'
-    #             print("Going RIGHT2")
-
     sorted_list = get_food_list(snake_head, data)
     first_food = sorted_list[0].loc
 
     primary_path = search(snake_head, data, first_food)
-    print ("Primary: " + primary_path.__str__())
     sec_path = None
 
     if len(sorted_list) > 1:
@@ -117,13 +71,11 @@ def move():
 
     if len(sorted_list) > 1:
         if not sec_path:
-            print "Trying to find alt path"
             primary_path = search(snake_head, data, sec_food.loc)
 
 
     if not primary_path:
         #Desperation Move
-        print "DESPERATION ENTERED"
         if (if_safe(up(snake_head,1), data)):
             return {
                 'move': 'up',
