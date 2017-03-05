@@ -68,7 +68,7 @@ def move():
 
     if len(sorted_list) > 1:
         if not primary_path and sec_path:
-            print "2"
+            print "sec_path = " + sec_path
             primary_path = sec_path
 
     if len(sorted_list) > 1:
