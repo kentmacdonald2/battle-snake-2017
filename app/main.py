@@ -105,7 +105,8 @@ def move():
     sec_path = None
     if len(sorted_list) > 1:
         sec_food = sorted_list[1]
-        sec_path = search(first_food, data, sec_food.loc)
+        new_list = get_food_list(first_food, data)
+        sec_path = search(first_food, data, new_list[0].loc)
 
     if not sec_path:
         print "Trying to find alt path"
