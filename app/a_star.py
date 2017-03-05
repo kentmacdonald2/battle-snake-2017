@@ -65,6 +65,8 @@ def search(snake_head, data, goal):
     #Set score to zero
     count = 0
     while len(open_list) > 0:
+        if count > 499:
+            return None
         q = min(open_list, key= lambda n: n.f)
         open_list.remove(q)
 
