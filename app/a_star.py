@@ -63,7 +63,7 @@ def search(snake_head, data, goal):
     #Add starting node to the open list
     open_list.append(snek)
     #Set score to zero
-
+    count = 0
     while len(open_list) > 0:
         q = min(open_list, key= lambda n: n.f)
         open_list.remove(q)
@@ -82,9 +82,10 @@ def search(snake_head, data, goal):
             q_right = node(right(q.pos), parent=q)
             successors.append(q_right)
 
-        count = 0
+
+        count += 1
         for succesor in successors:
-            count+= 1
+
             print (count.__str__())
             if succesor.pos == goal:
                 return reconstruct(succesor)
