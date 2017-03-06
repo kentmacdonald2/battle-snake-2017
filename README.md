@@ -1,6 +1,13 @@
-# battlesnake-python
+# Battlesnake 2017 Entry 
+####By Kent MacDonald and Benjamin Cunningham
 
-A simple [BattleSnake AI](http://battlesnake.io) written in Python. 
+###2017 Battlesnake Advanced Division Entry  
+
+We used and aggresive strategy that looks for food and relatively save positioning via "AStar" search using a straight line distance heuristic
+
+(general info about deploying python-based battlesnakes below)
+
+---
 
 Visit [battlesnake.io/readme](http://battlesnake.io/readme) for API documentation and instructions for running your AI.
 
