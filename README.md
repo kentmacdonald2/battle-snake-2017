@@ -3,7 +3,7 @@
 
 ###2017 Battlesnake Advanced Division Entry  
 
-We used and aggresive strategy that looks for food and relatively save positioning via "AStar" search using a straight line distance heuristic
+We used an aggresive strategy that looks for food and relatively save positioning via AStar search using a straight line distance heuristic
 
 (general info about deploying python-based battlesnakes below)
 
