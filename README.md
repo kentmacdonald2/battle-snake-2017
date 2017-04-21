@@ -1,9 +1,9 @@
 # Battlesnake 2017 Entry 
-####By Kent MacDonald and Benjamin Cunningham
+#### By Kent MacDonald and Benjamin Cunningham
 
-###2017 Battlesnake Advanced Division Entry  
+### 2017 Battlesnake Advanced Division Entry  
 
-We used an aggresive strategy that looks for food and relatively save positioning via AStar search using a straight line distance heuristic
+We used an aggressive strategy that looks for food and relatively safe positioning via AStar search using a straight line distance heuristic
 
 (general info about deploying python-based battlesnakes below)
 
